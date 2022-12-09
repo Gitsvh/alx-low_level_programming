@@ -1,21 +1,16 @@
 #include <stdio>
 /**
- * main -print out sizes of data types in c
- * code by matrix decoded
- * return: 0
-*/
+ * main - Entry
+ * return: Always 0
+ */
+main(void)
 int main(void)
 {
-	char a;
-	int b;
-	long int c;
-	long long int d;
-	float f;
 
-	printf("size of a char: %lu byte(S)\n", (unsigned long) size of (a));
-	printf("size of a int: %lu byte(S)\n", (unsigned long) size of (b));
-	printf("size of a long int: %lu byte(S)\n", (unsigned long) size of (c));
-	printf("size of a long long int: %lu byte(S)\n", (unsigned long) size of (d));
-	printf("size of a float: %lu byte(S)\n" (unsigned long) size of (f));
-	return (0)
+	printf("size of a char: %i byte(S)\n", sizeof(char));
+	printf("size of an int: %i byte(S)\n", sizeof(int));
+	printf("size of a long int: %i byte(S)\n", sizeof(long int));
+	printf("size of a long long int: %i byte(S)\n", sizeof(long long int));
+	printf("size of a float: %i byte(S)\n", sizeof(float));
+        return: (0)
 }
