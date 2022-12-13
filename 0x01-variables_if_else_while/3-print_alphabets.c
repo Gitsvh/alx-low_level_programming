@@ -4,7 +4,7 @@
 /**
  * main - returns alphabets both lower and upper cases
  *
- * Returns: always 0 (success)
+ * Return: always 0 (success)
  */
 int main(void)
 {
@@ -18,11 +18,9 @@ int main(void)
 	}
 	while (CH <= 'Z')
 	{
-		putchar(CH)
+		putchar(CH);
 		CH++;
 	}
-	
 	putchar('\n');
 	return (0);
 }
-
