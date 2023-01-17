@@ -3,8 +3,8 @@
 /**
  * _putchar - write the character c to stdout
  * @c: the character to print
- * Return: on success 1.
- * on error, -1 is returned, and error is set appropriately
+ * Return: on success 1
+ * on error -1 is returned and error is set to approriately
  */
 
 int _putchar(char c)
