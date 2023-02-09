@@ -2,41 +2,35 @@
 #include <stdlib.h>
 
 /**
- * read_textfile - reads a text file and prints to POSIX stdout
- * @filename: a pointer to the name of the file
- * @letters: number of letters the function read and print
- * Return: if the function fails is NULL 0
+ * read_textfile - reads a text file and prints the letters
+ * @filename: filename.
+ * @letters: numbers of letters printed.
+ * Return: numbers of letters printed. It fails, returns 0.
  */
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd_read, count_chars, fd_open;
-	char *buf_letters;
+	int fd;
+	ssize_t i, j;
+	char *buf;
 
-	if (filename == NULL)
+	if (!filename)
 		return (0);
 
-	fd_open = open(filename, O_RDONLY);
-	if (fd_open == -1)
-		return (0);
-	buf_letters = malloc(sizeof(char) * letters);
-	if (buf_letters == NULL)
-		return (0);
-	fd_read = read(fd_open, buf_letters, letters);
-	if (fd_read == -1)
-	{
-		free(buf_letters);
-		return (0);
-	}
+	fd = open(filename, O_RDONLY);
 
-	count_chars = write(STDOUT_FILENO, buf_letters, fd_read);
-	if (count_chars == -1)
-	{
-		free(buf_letters);
-			return (0);
-	}
+	if (fd == -1)
+		return (0);
 
-	close(fd_open);
-	free(buf_letters);
-	return (0);
+	buf = malloc(sizeof(char) * (letters));
+	if (!buf)
+		return (0);
+
+	i = read(fd, buf, letters);
+	j = write(STDOUT_FILENO, buf, i);
+
+	close(fd);
+	free(buf);
+
+	return (j);
 }
